@@ -1,0 +1,604 @@
+
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+
+*,
+*::before,
+*::after
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-style: 'Cabin', sans-serif;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+.scroll__top a{
+    color: rgb(244, 197, 96);
+    position: fixed;
+    bottom: 0;
+    right: 25px;
+    font-size: 5rem;
+    z-index: 10000;
+}
+section{
+    padding: 3.9em 0;
+}
+img{
+    width: 100%;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+
+}
+p{
+    font-size: 1.6rem;
+    text-align: center;
+}
+.container{
+    width: 100%;
+    max-width: 122.5rem;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+}
+/*Header*/
+header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+}
+.nav{
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    margin-top: 25px;
+    width: 180px;
+    
+}
+.menu-toggle{
+    color: #fff;
+    font-size: 2.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2.5rem;
+    cursor: pointer;
+    z-index: 15 ;
+}
+.nav .fa-times{
+    display: none;
+}
+.nav .nav-list{
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    background-color: rgb(63, 60, 60);
+    padding: 4.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 12;
+    transform: translateX(-100%);
+    transition: transform .5s;
+}
+.nav::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 10vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+.open .nav .fa-times{
+    display: block;
+}
+.open .nav .fa-bars{
+    display: none;
+}
+.open .nav .nav-list{
+    transform: translateY(0);
+}
+.open .nav::before{
+    box-shadow: 10 10 10 10 black;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav .nav-item{
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+.nav .nav-link{
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    transition: color .5s;
+}
+.nav .nav-link:hover{
+    color: rgb(244, 197, 96);
+}
+
+/*HERO*/
+.hero{
+    width: 100%;
+    height: 100vh;
+    background: url('images/hero.jpg') center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    columns: #313030fd;
+    color: #c59d5f;
+}
+.sub-headline{
+    font-size: 9rem;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    color: #c59d5f;
+    font-weight: 100;
+    line-height: .4;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp .5s forwards;
+    animation-delay: 0.5s;
+}
+.first-letter{
+    text-transform: uppercase;
+    font-size: 10.3rem;
+}
+.headline{
+    font-size: 3.7rem;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: .5rem;
+    margin-right: -.5rem;
+    animation: 0.5s scale forwards;
+
+}
+.separator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line{
+    width: 100%;
+    max-width: 8.4rem;
+    height: .24rem;
+    background-color: #fff;
+    position: relative;
+    opacity: 0;
+    animation: grow 2s forwards;
+    animation-delay: .9s; 
+}
+.line-left::before,
+.line-right::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: .6rem solid transparent;
+    opacity: 0;
+    animation: grow .5s forwards;
+    animation-delay: 1.2s;
+}
+.line-right::before{
+    border-right-color: #fff;
+    right: 0;
+
+}
+.line-left::before{
+    border-left-color: #fff;
+    left: 0;
+}
+.asterisk{
+    font-size: 1.2rem;
+    color: #c59d5f;
+    margin: 0 1.6rem;
+    opacity: 0;
+    animation: spin 1s forwards;
+    animation-delay: .7s;
+}
+.headline-description h5{
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin: 1.2rem;
+    letter-spacing: 3px;
+    margin-right: -3px;
+}
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+}
+.cta-btn{
+    background-color: #fff;
+    font-size: 1.1rem;
+    padding: .9rem 1.8rem;
+    color: #515151;
+    border-radius: .4rem;
+    transition: background-color 0.5s;
+}
+.cta-btn:hover,
+.cta-btn:focus{
+    background-color: #c59d5f;
+}
+
+/*Our story*/
+.global__headline{
+    text-align: center;
+    margin-top: 3.9rem;
+}
+
+.disover_our_story .global__headline{
+    margin-top: 6.9rem;
+}
+.global__headline .asterisk{
+    color: #515151;
+    margin-top: 2.4rem 0;
+}
+.headline-dark{
+    color: black;
+    letter-spacing: .7rem;
+    margin-right: -.7rem;
+}
+.global__headline .sub-headline{
+    letter-spacing: -1px;
+    line-height: .42;
+}
+.resurant__info{
+    text-align: center;
+}
+.resturant__description{
+    margin-bottom: 3rem;
+}
+.resturant__description p{
+    line-height: 1.6;
+    margin-bottom: 2.4rem;
+}
+.body__btn{
+    font-size: 1.5rem;
+    color: #c59d5f;
+    position: relative;
+    transition: color .5s;
+}
+.body__btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #c59d5f;
+    transition: background-color .5s;
+}
+.body__btn:hover,
+.body__btn:focus{
+    color: black;
+}
+.body__btn:hover::before,
+.body__btn:hover:focus{
+    background-color: black;
+}
+
+/*Tasteful*/
+.tasteful-recipes{
+    background: url('images/tasteful-recipes.jpg') center no-repeat;
+    background-size: cover;
+}
+.between{
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+}
+.animate-bottom .headline{
+    color: #252525;
+}
+
+/*Discover our menu*/
+.image-group{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1.5rem;
+}
+.discover-our-menu .resturant__description{
+    padding-top: 3rem;
+    margin-bottom: 0;
+}
+.discover-our-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.discover-our-menu p{
+    margin-top: 1.5rem;
+}
+.discover-our-menu asterisk{
+    margin-top: 2rem;
+}
+.animate-bottom .headline-light{
+    color: rgb(204, 198, 189);
+}
+/*Pefect blend*/
+.perfect-blend{
+    background: url('images/perfect-blend.jpg')center no-repeat;
+    background-size: cover;
+}
+
+
+
+/* Footer*/
+footer{
+    padding: 7.9rem 0;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.container{
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+}
+.back-to-top{
+    width: 7rem;
+    height: 7rem;
+    background-color: #121212;
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+.back-to-top i:hover{
+    transition: margin-top 0.5s ease;
+
+    margin-top: -4px;
+}
+.back-to-top i{
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    padding: 2rem;
+}
+.footer-content{
+    /*overflow: hidden;*/
+}
+.footer-content p{
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.footer-content h4{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin-bottom: 3rem;
+}
+.footer-content .asterisk{
+    margin: 2.4rem 0;
+}
+.footer-content-about{
+    margin-bottom: 5.4rem;
+}
+.footer-content-about p{
+    line-height: 2;
+}
+.social-icons{
+    list-style: none;
+    margin-bottom: 5.4rem;
+    display: flex;
+    justify-content: center;
+}
+.social-icons i{
+    font-size: 2rem;
+    color: #fff;
+    padding: .8rem 2rem;
+    opacity: .5;
+    transition: color .5s;
+}
+.social-icons i:hover,
+.social-icons i:focus{
+    color: #c59d5f ;
+}
+.newsletter-form{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.newsletter-input{
+    width: 100%;
+    max-width: 25rem;
+    padding: 1rem;
+    border-radius: .4rem;
+}
+.newsletter-btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #252525;
+    font-size: 1.6rem;
+    padding: 1px .6rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10.5rem;
+}
+
+@media screen and (min-width: 900px){
+    section{
+        padding: 7rem;
+    }
+    .menu-toggle{
+        display: none;
+    }
+    .nav{
+        justify-content: space-between;
+    }
+    .nav .nav-list{
+        position: initial;
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        padding: 0;
+        justify-content: initial;
+        flex-direction: row;
+        transform: initial;
+        transition: initial;
+    }
+    .nav .nav-item{
+        margin: 0 2.4rem;
+        border: none;
+    }
+    .logo{
+        width: 150px;
+    }
+    .nav .nav-item:last-child{
+        margin-right: 0;
+    }
+    .nav .nav-link{
+        font-size: 1.8rem;
+    }
+    .active{
+        position: relative;
+    }
+    .active:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        left: -0.5px;
+        bottom: -3px;
+    }
+    .sub-headline{
+        font-size: 10rem;
+    }
+    .first-letter{
+        font-size: 12.2rem;
+    }
+    .headline{
+        font-size: 4.7rem;
+        letter-spacing: .8rem;
+    }
+    .line{
+        max-width: 11.4rem;
+    }
+    .resurant__info{
+        display: flex;
+        align-items: center;
+    }
+    .resurant__info > div{
+       flex: 1;
+    }
+    .resturant__info{
+        display: flex;
+        align-items: center;
+    }
+    .resturant__info > div{
+       flex: 1;
+    }
+    .padding-right{
+        padding-right: 7rem;
+    }
+    .footer-content{
+        max-width: 77.5rem
+        margin: auto;
+    }
+    .footer-content-about{
+        width: 51.3rem;
+        margin: 0 auto 5.4rem;
+    }
+}
+
+
+/*Animation*/
+.single-animation{
+    opacity: 0;
+    animation: fadeDown .5s forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeUp{
+    0%{
+        transform: translateY(4rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(2);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+
+
+@keyframes spin{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(-360deg);
+
+    }
+}
+
+
+@keyframes grow{
+    0%{
+        width: 0;
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+
+    }
+}
+
+@keyframes fadeDown{
+    0%{
+        transform: translateY(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
